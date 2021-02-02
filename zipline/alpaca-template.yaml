@@ -1,0 +1,4 @@
+key_id: "<YOUR-KEY>"
+secret: "<YOUR-SECRET>"
+base_url: https://paper-api.alpaca.markets
+universe: SP500
