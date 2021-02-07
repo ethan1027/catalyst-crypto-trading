@@ -9,6 +9,8 @@ verify_ssl = true
 backtrader = "*"
 pyportfolioopt = "*"
 alpaca-backtrader-api = "*"
+matplotlib = "==3.2.2"
+ta-lib = {path = "./../TA_Lib-0.4.19-cp36-cp36m-win_amd64.whl"}
 
 [requires]
 python_version = "3.6"
