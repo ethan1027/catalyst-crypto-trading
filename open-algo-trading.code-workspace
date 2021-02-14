@@ -11,7 +11,14 @@
 		},
 		{
 			"path": "backtrader"
+		}, {
+			"path": "eiten"
+		},
+		{
+			"path": "tailor"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"jupyter.jupyterServerType": "local"
+	}
 }

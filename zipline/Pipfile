@@ -8,7 +8,9 @@ verify_ssl = true
 [packages]
 zipline-trader = "*"
 matplotlib = "*"
-ta-lib = {path = "./TA_Lib-0.4.19-cp36-cp36m-win_amd64.whl"}
+ta-lib = {path = "./../TA_Lib-0.4.19-cp36-cp36m-win_amd64.whl"}
+pandas-ta = "*"
+dataclasses = "*"
 
 [requires]
 python_version = "3.6"

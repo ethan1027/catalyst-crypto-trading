@@ -10,6 +10,7 @@ from zipline.data import bundles
 from zipline import run_algorithm
 
 from talib import STOCH, MA_Type
+from pandas_ta import stoch
 
 
 def get_benchmark(symbol=None, start=None, end=None):
@@ -29,8 +30,11 @@ def handle_data(context, data):
   trailing_window = data.history(context.equity, ['high', 'low', 'close'], 14, '1d')
   if trailing_window.isnull().values.any():
     return
-  print(trailing_window.values)
-  slowk, slowd = STOCH(trailing_window['high'], trailing_window['low'], trailing_window['close'], 14, 3, 0, 14, 0)
+  s = stoch(trailing_window['high'], trailing_window['low'], trailing_window['close'], 14, 3, 14)
+  s.
+  print(s)
+  # slowk, slowd = STOCH(trailing_window['high'], trailing_window['low'], trailing_window['close'], 14, 3, 0, 14, 0)
+  # print(slowk, slowd)
 
 
 
@@ -50,7 +54,7 @@ if __name__ == '__main__':
   trading_calendar = get_calendar('NYSE')
 
   start = pd.Timestamp(datetime(2020, 12, 30, tzinfo=pytz.UTC))
-  end = pd.Timestamp(datetime(2021, 1, 29, tzinfo=pytz.UTC))
+  end = pd.Timestamp(datetime(2021, 1, 8, tzinfo=pytz.UTC))
 
   r = run_algorithm(
     start=start,
