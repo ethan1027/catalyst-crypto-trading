@@ -37,14 +37,20 @@ def initialize_client():
 
 ASSETS = None
 def list_assets():
+    global ASSETS
     with open("alpaca.yaml", mode='r') as f:
         o = yaml.safe_load(f)
+        try:
+            ASSETS = [str(asset).strip() for asset in o["custom_asset_list"].split(",")]
+            print(f"custom assets: {ASSETS}")
+        except:
+            ASSETS = None
         try:
             universe = Universe[o["universe"]]
         except:
             universe = Universe.ALL
-    global ASSETS
     if not ASSETS:
+        print(f"universe {ASSETS}")
         if universe == Universe.ALL:
             ASSETS = all_alpaca_assets(CLIENT)
         elif universe == Universe.SP100:

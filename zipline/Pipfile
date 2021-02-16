@@ -9,7 +9,6 @@ verify_ssl = true
 zipline-trader = "*"
 matplotlib = "*"
 ta-lib = {path = "./../TA_Lib-0.4.19-cp36-cp36m-win_amd64.whl"}
-pandas-ta = "*"
 dataclasses = "*"
 
 [requires]
