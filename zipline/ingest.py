@@ -335,7 +335,7 @@ if __name__ == '__main__':
     # while not cal.is_session(start_date):
     #     start_date += timedelta(days=1)
 
-    start_date = end_date - timedelta(days=120)
+    start_date = end_date - timedelta(days=150)
     while not cal.is_session(start_date):
         start_date -= timedelta(days=1)
 
@@ -348,8 +348,8 @@ if __name__ == '__main__':
     register(
         'alpaca_api',
         # api_to_bundle(interval=['1d', '1m']),
-        # api_to_bundle(interval=['1m']),
-        api_to_bundle(interval=['1d']),
+        api_to_bundle(interval=['1m']),
+        # api_to_bundle(interval=['1d']),
         calendar_name='NYSE',
         start_session=start_date,
         end_session=end_date
