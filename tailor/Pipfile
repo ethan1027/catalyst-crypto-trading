@@ -11,6 +11,7 @@ yfinance = "*"
 alpaca-trade-api = "*"
 bt = "*"
 pandas-ta = "*"
+tensortrade = "*"
 
 [dev-packages]
 

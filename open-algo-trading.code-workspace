@@ -16,6 +16,9 @@
 		},
 		{
 			"path": "tailor"
+		},
+		{
+			"path": "mltrade"
 		}
 	],
 	"settings": {

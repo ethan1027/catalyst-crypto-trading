@@ -23,21 +23,21 @@ def get_benchmark(symbol=None, start=None, end=None):
 
 
 def initialize(context):
-  equities = ["TSLA", "BAC"]
+  equities = ["BAC"]
   context.equities = [symbol(equity) for equity in equities]
   context.count = 0
 
 
 def handle_data(context, data):
   context.count += 1
-  if context.count < 60:
-    return
+  # if context.count < 60:
+  #   return
   context.count = 0
   for equity in context.equities:
     trailing_window: pd.DataFrame = data.history(equity, ['high', 'low', 'close'], 60 * 30, '1m')
     if trailing_window.isnull().values.any():
       return
-    hour_trailing_window = trailing_window.resample('60T').last()
+    hour_trailing_window = trailing_window
     # print(hour_trailing_window)
     slowk, slowd = STOCH(hour_trailing_window['high'], hour_trailing_window['low'], hour_trailing_window['close'], 14, 3, 0, 14, 0)
     if slowk.values[-1] > slowd.values[-1]:

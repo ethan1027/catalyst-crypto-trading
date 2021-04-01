@@ -16,6 +16,7 @@ from zipline.data.bundles import core as bundles
 from zipline.data.bundles.universe import Universe, all_alpaca_assets, get_sp500, get_sp100, get_nasdaq100
 from dateutil.parser import parse as date_parse
 
+# pd.set_option('display.max_rows', None)
 
 user_home = str(Path.home())
 custom_data_path = join(user_home, '.zipline/custom_data')
@@ -226,8 +227,7 @@ def get_aggs_from_alpaca(symbols,
             processed = processed.reindex(df.index.values)
         if not df.empty:
             processed[sym] = df
-
-    return processed
+    return response
 
 MAX_PER_REQUEST_AMOUNT = 200  # Alpaca max symbols per 1 http request
 def df_generator(interval, start, end):
@@ -348,8 +348,8 @@ if __name__ == '__main__':
     register(
         'alpaca_api',
         # api_to_bundle(interval=['1d', '1m']),
-        api_to_bundle(interval=['1m']),
-        # api_to_bundle(interval=['1d']),
+        # api_to_bundle(interval=['1m']),
+        api_to_bundle(interval=['1d']),
         calendar_name='NYSE',
         start_session=start_date,
         end_session=end_date
